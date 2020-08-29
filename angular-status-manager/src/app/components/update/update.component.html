@@ -1,0 +1,36 @@
+<section>
+    <div>
+        <a class="button" routerLink="/">Main Page</a>
+    </div>
+    <br/>
+
+    <div>
+        <span>Status Name: </span>
+        <span class="update-text-bolder">{{currentStatus}} </span>
+        <button (click)="deleteStatus()">Delete</button>
+    </div>
+    <br/>
+
+    <div>
+        <span>Could be transferred to:</span>
+        <ul class="tab-display">
+            <li class="tab-list" (click)="selectElement(false)">
+                <input type="checkbox" [(ngModel)]="selfChecked" disabled/>
+                <span>self</span>
+            </li>
+            <li *ngFor="let item of statusData" class="tab-list" (click)="selectElement(item)">
+                <input type="checkbox"  *ngIf="!item.isCurrent" [(ngModel)]="item.checked" disabled/>
+                <span *ngIf="!item.isCurrent">{{item.name}}</span>
+            </li>
+        </ul>
+    </div>
+    <br/>
+
+    <div>
+        <button (click)="submitUpdate()">Update Status</button>
+    </div>
+    <br/>
+
+</section>
+
+

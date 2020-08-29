@@ -1,0 +1,38 @@
+<section>
+    <div>
+        <a class="button" routerLink="/">Main Page</a>
+    </div>
+    <br/>
+
+    <div>
+        <span>Status Name: </span>
+        <input type="text" [(ngModel)]="createdInput"  placeholder="New status name"/>
+    </div>
+    <br/>
+
+    <div>
+        <span>Could be transferred to:</span>
+        <ul class="tab-display">
+            <li class="tab-list" (click)="selectElement(false)">
+                <input type="checkbox" [(ngModel)]="selfChecked" disabled/>
+                <span>self</span>
+            </li>
+            <li *ngFor="let item of statusData" class="tab-list" (click)="selectElement(item)">
+                <input type="checkbox" [(ngModel)]="item.checked" disabled/>
+                <span>{{item.name}}</span>
+            </li>
+        </ul>
+    </div>
+    <br/>
+
+    <div>
+        <button (click)="submitCreate()">Create Status</button>
+    </div>
+    <br/>
+
+    <div>
+        <span *ngIf="messageFlag" class="message-error">Please input correctly</span>
+    </div>
+    <br/>
+</section>
+

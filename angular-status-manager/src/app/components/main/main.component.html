@@ -1,0 +1,58 @@
+<section>
+    <div>
+      <span>Current Status is </span>
+      <span class="main-text-bolder">{{currentStatus}} </span>
+      <button routerLink="/create">Create Status</button>
+    </div>
+    <br/>
+    
+    <div>
+      <span>Update status: </span>
+      <select (change)="selectUpdateItem($event.target.value)">
+        <option selected disabled>Select a status</option>
+        <option *ngFor="let item of statusData" [value]="item.name">{{item.name}}</option>
+      </select>
+      <span>?(forward to update page directly after selection)</span>
+    </div>
+    <br/>
+  
+    <div>
+      <span>Could be transferred to </span>
+      <select (change)="selectFirstItem($event.target.value)">
+        <option selected disabled>Select a status</option>
+        <option *ngFor="let item of statusData" [value]="item.name">{{item.name}}</option>
+      </select>
+      <span>?</span>
+      <br/>
+      <span>Yes(No), can(not) be transferred to </span>
+      <span class="main-text-bolder">{{firstSelectStatus}} </span>
+      <span>from </span>
+      <span class="main-text-bolder">{{currentStatus}}</span>
+    </div>
+    <br/>
+  
+    <div>
+      <span>How could be transferred to </span>
+      <select (change)="selectSecondItem($event.target.value)">
+        <option selected disabled>Select a status</option>
+        <option *ngFor="let item of statusData" [value]="item.name">{{item.name}}</option>
+      </select>
+      <span>?</span>
+      <br/>
+      <span class="main-text-bolder">No trans route</span>
+    </div>
+    <br/>
+
+    <div>
+      <span>Transferred to </span>
+      <select (change)="selectCurrentItem($event.target.value)">
+        <option selected disabled>Select a status</option>
+        <option *ngFor="let item of statusData" [value]="item.name">{{item.name}}</option>
+      </select>
+      <span>?</span>
+      <br/>
+      <span>Could not be transferred to </span> 
+      <span class="main-text-bolder">{{thirdSelectStatus}}</span>
+    </div>
+    <br/>
+  </section>
