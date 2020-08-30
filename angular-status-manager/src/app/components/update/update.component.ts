@@ -61,6 +61,7 @@ export class UpdateComponent implements OnInit {
         if (ele.isCurrent) {
           tempArr = ele.transferTo;
         }
+        ele.checked = false;
       })
     }
     tempArr.forEach((ele)=> {

@@ -13,7 +13,7 @@ export class CreateComponent implements OnInit {
   public createdStatus:string = "Created Status";
   public createdInput:string = "";
   public selfChecked:boolean = false;
-  public statusData = this.statusDataService.statusData;
+  public statusData = this.dataSetup();
   public messageFlag = false;
 
   constructor(
@@ -22,6 +22,14 @@ export class CreateComponent implements OnInit {
     ) {  }
 
   ngOnInit(): void {
+  }
+
+  dataSetup(){
+    let temp = this.statusDataService.statusData;
+    temp.forEach((ele) => {
+      ele.checked = false;
+    })
+    return temp;
   }
 
   submitCreate (){

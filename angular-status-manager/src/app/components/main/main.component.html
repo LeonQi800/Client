@@ -24,7 +24,9 @@
       </select>
       <span>?</span>
       <br/>
-      <span>Yes(No), can(not) be transferred to </span>
+      <span *ngIf="firstAns" class="main-text-bolder">Can </span>
+      <span *ngIf="!firstAns" class="main-text-bolder">Can't </span>
+      <span>be transferred to </span>
       <span class="main-text-bolder">{{firstSelectStatus}} </span>
       <span>from </span>
       <span class="main-text-bolder">{{currentStatus}}</span>
@@ -39,7 +41,10 @@
       </select>
       <span>?</span>
       <br/>
-      <span class="main-text-bolder">No trans route</span>
+      <span class="main-text-bolder" *ngIf="secondAns.length === 0">No trans route</span>
+      <ul class="main-text-bolder" *ngIf="secondAns.length > 0">
+        <li *ngFor="let item of secondAns">{{item}} </li>
+      </ul>
     </div>
     <br/>
 
@@ -51,8 +56,10 @@
       </select>
       <span>?</span>
       <br/>
-      <span>Could not be transferred to </span> 
-      <span class="main-text-bolder">{{thirdSelectStatus}}</span>
+      <div *ngIf="!thirdAns">
+        <span>Could not be transferred to </span> 
+        <span class="main-text-bolder">{{thirdSelectStatus}}</span>
+      </div>
     </div>
     <br/>
   </section>
